@@ -13,6 +13,8 @@ sdist
 develop-eggs
 .installed.cfg
 
+database.db
+
 # Installer logs
 pip-log.txt
 
