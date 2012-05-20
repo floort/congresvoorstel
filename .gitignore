@@ -13,7 +13,10 @@ sdist
 develop-eggs
 .installed.cfg
 
+
 database.db
+venv
+
 
 # Installer logs
 pip-log.txt
