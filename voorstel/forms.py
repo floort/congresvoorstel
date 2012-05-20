@@ -6,3 +6,9 @@ class AmendementForm(forms.Form):
 
 
 
+class AmendementCommentForm(forms.Form):
+    text = forms.CharField(widget=forms.Textarea)
+
+
+
+

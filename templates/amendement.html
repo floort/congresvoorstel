@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>{{amendement.title}}</title>
+    </head>
+    <body>
+        <h1>{{amendement.title}}</h1>
+
+        {% for comment in comments %}
+            {{comment.author}}: {{comment.text}}<br/>
+        {% endfor %}
+
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Post">
+        </form>
+    </body>
+</html>
