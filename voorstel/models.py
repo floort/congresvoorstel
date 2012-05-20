@@ -1,4 +1,6 @@
 from django.db import models
+from random import choice
+
 
 # Create your models here.
 
@@ -7,10 +9,10 @@ STATUS_CHOICES = (
     ("ACCEPTED", "Geaccepteerd"),
     ("DENIED", "Afgewezen"),
 )
-
+CHARSET = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
 class AmendementComment(models.Model):
-    amendement = models.ForeignKey(AMendement)
+    amendement = models.ForeignKey('Amendement')
     time = models.DateTimeField(auto_now=True)
     author = models.CharField(max_length=64)
     text = models.TextField()
@@ -28,6 +30,7 @@ class Amendement(models.Model):
     def __unicode__(self):
         return self.title
 
-
+    def gen_random_key(self):
+        self.key = "".join([choice(CHARSET) for i in range(32)])
 
 
