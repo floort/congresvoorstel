@@ -17,6 +17,9 @@ class AmendementComment(models.Model):
     author = models.CharField(max_length=64)
     text = models.TextField()
 
+    class Meta:
+        verbose_name_plural = "Amendement Comments"
+
     def __unicode__(self):
         return (u"%s: %s" % (self.author, self.text))[:128]
 
@@ -24,8 +27,14 @@ class AmendementComment(models.Model):
 class Amendement(models.Model):
     key = models.SlugField()
     title = models.CharField(max_length=256)
-    status = models.CharField(max_length=16, choices=STATUS_CHOICES)
+    status = models.CharField(
+                                max_length=16, 
+                                choices=STATUS_CHOICES,
+                                default="NEW")
     email = models.EmailField()
+
+    class Meta:
+        verbose_name_plural = "Amendementen"
 
     def __unicode__(self):
         return self.title
